@@ -1,0 +1,70 @@
+<div class="create-board-section">
+  <!-- Button to trigger the modal -->
+  <button class="primary add-board-btn">
+    Add Board
+  </button>
+  <a href="/boards"
+     role="button"
+     class="primary">
+    View All Generated Boards
+  </a>
+
+  <!-- Modal -->
+  <dialog id="board-form-modal" open="false">
+    <article style="min-width: 660px">
+      <a href="#close"
+         aria-label="Cancel"
+         class="close modal-toggle"
+         data-target="board-form-modal">
+      </a>
+      <h3>New Board</h3>
+      <form method="post" action="/boards" accept-charset="UTF-8">
+        <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+        <!-- # Mines -->
+        <label for="email">Email</label>
+        <input type="email" id="email" name="board[email]" placeholder="Enter your email" required>
+
+        <div class="grid">
+          <!-- Name -->
+          <label for="name">
+            <input type="text" id="name" name="board[name]" placeholder="Board Name" required>
+          </label>
+          <!-- Email -->
+          <label for="mines">
+            <input type="number" id="mines" name="board[mines]" placeholder="# Mines" required>
+          </label>
+        </div>
+        <div class="grid">
+          <!-- Width -->
+          <label for="width">
+            <input type="number" id="width" name="board[width]" placeholder="Enter a width"required>
+          </label>
+          <!-- Height -->
+          <label for="height">
+            <input type="number" id="height" name="board[height]" placeholder="Enter a height"required>
+          </label>
+        </div>
+
+        <footer>
+          <div class="modal-action-buttons">
+            <input type="submit" name="commit" value="Create Board" class="primary modal-action-btn" data-disable-with="Create Board">
+            <a href="#cancel"
+               role="button"
+               class="secondary modal-toggle modal-action-btn"
+               data-target="board-form-modal">
+              Cancel
+            </a>
+          </div>
+        </footer>
+      </form>
+
+    </article>
+  </dialog>
+</div>
+
+<div class="latest-boards">
+  <div class="boards-title">Latest Boards</div>
+    <%= render "partials/board_list", boards: @boards %>
+  </div>
+</div>

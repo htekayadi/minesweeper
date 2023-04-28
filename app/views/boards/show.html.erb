@@ -1,0 +1,25 @@
+<hgroup>
+  <h1><%= @board.name %></h1>
+  <h3><%= @board.email %></h3>
+  <h6><%= @board.mines %> mines</h6>
+</hgroup>
+
+<section>
+  <br>
+  <div class="board-wrapper">
+    <div class="minesweeper-board">
+      <% @board.parsed_board.each do |array| %>
+        <div class="minesweeper-board-row">
+          <% array.map do |i| %>
+            <% if i >= 9 %>
+              <img class="board-cell board-cell-icon" src="https://freesvg.org/img/bomb-3175208.png"/>
+            <% else %>
+              <div class="board-cell"></div>
+            <% end %>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</section>
+
