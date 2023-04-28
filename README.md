@@ -1,24 +1,28 @@
-# README
+# Minesweeper App
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Minesweeper is a simple Rails application that allows users to generate minesweeper boards as well as to view previously generated minesweeper boards.
 
-Things you may want to cover:
 
-* Ruby version
+## Technologies Used
+- Ruby on Rails
 
-* System dependencies
+## Setup
+To set up the Good Night app, follow these steps:
 
-* Configuration
+1. Install the dependencies:
+```bash
+bundle install
+```
 
-* Database creation
+2. Set up the database:
+```bash
+rails db:create
+rails db:migrate
+rails db:seed # this will create 15 random boards
+```
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+3. Start the server:
+```bash
+rails server
+```
+Go to http://localhost:3000 to see the homepage
